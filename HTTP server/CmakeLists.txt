@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.12)
+
+# Nombre del proyecto
+project(httpserver VERSION 0.1 LANGUAGES CXX)
+
+# Estándar de C++
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# Ejecutable principal
+add_executable(http_server http_server.cpp)
+
+# Enlazar la librería de Winsock
+target_link_libraries(http_server PRIVATE ws2_32)
+
+# Opciones de compilación
+target_compile_options(http_server PRIVATE -Wall -Wextra -pedantic)
